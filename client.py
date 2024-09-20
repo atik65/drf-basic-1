@@ -1,9 +1,9 @@
 import requests
 
-endpoint = 'http://0.0.0.0:4000'
+endpoint = 'http://0.0.0.0:4000/api/product'
 
 def make_request():
-    res = requests.get(endpoint, params={'q': 'hello', 'foo': 'bar'})
+    res = requests.get(endpoint)
     print(res.json())
 
 
