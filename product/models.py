@@ -9,4 +9,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
+
+    @property
+    def get_discounted_price(self):
+
+        return f'{self.price * 0.9:.2f}'
     
