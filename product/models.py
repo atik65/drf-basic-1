@@ -13,5 +13,8 @@ class Product(models.Model):
     @property
     def get_discounted_price(self):
 
-        return f'{self.price * 0.9:.2f}'
+        d_price = f'{self.price * 0.9:.2f}'
+
+        # return number version of d_price
+        return float(d_price)
     

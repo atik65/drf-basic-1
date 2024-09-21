@@ -10,7 +10,7 @@ from rest_framework.response import Response
 
 
 
-# Create your views here.
+# product view without drf -- core django rest api
 def productView(request, *args, **kwargs):
 
     try:
@@ -38,3 +38,19 @@ def productViewDrf(request, *args, **kwargs):
 
     return Response(data)
 
+
+
+# create product
+@api_view(["POST"])
+def createProduct(request, *args, **kwargs):
+
+    serializer = ProductSerializer(data= request.data)
+
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        return Response(serializer.data)
+
+
+    return Response({
+        'message': 'Something went wrong'
+    },status=500)
