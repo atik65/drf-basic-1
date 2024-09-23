@@ -2,9 +2,16 @@ import requests
 
 endpoint = 'http://0.0.0.0:4000/api/product/create/'
 
-def make_request():
+def create_request():
     res = requests.post(endpoint, data={'name': 'Orange juice', 'price': 48})
     print(res.json())
 
 
-make_request()
+def get_request():
+    endpoint = 'http://0.0.0.0:4000/api/product/details/1/'
+    res = requests.get(endpoint)
+    print(res.json())
+
+
+get_request()
+# create_request()

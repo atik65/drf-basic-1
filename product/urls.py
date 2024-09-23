@@ -6,4 +6,6 @@ urlpatterns = [
     path('', views.productView, name="product" ),
     path('drf/', views.productViewDrf, name="product-drf" ),
     path('create/', views.createProduct, name="create-product" ),
+    path('details/<int:id>/', views.productDetailsGenericView, name="product-details" ),
+
 ]

@@ -8,6 +8,8 @@ from .serializers import ProductSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from rest_framework import generics
+
 
 
 # product view without drf -- core django rest api
@@ -54,3 +56,13 @@ def createProduct(request, *args, **kwargs):
     return Response({
         'message': 'Something went wrong'
     },status=500)
+
+
+class ProductDetailsGeneric(generics.RetrieveAPIView):
+    queryset = models.Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'id'
+
+
+productDetailsGenericView = ProductDetailsGeneric.as_view()
+    
